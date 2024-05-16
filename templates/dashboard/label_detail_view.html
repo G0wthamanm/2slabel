@@ -1,0 +1,308 @@
+{%load static%}
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon"href="{% static 'img/favicon.png' %}"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+  
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Anton|Russo+One" rel="stylesheet">
+
+    <!-- Bootstrap core CSS     -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="{% static 'css/light-bootstrap-dashboard.css' %}" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{% static 'css/demo.css' %}" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/pe-icon-7-stroke.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+
+
+    <style type="text/css">
+#back{
+    background-color: rgb(27, 118, 238);
+    color: #fff;
+    width: max-content;
+    height: max-content;
+    font-size:x-large;
+    margin-left: 30px;
+    empty-cells: show;
+    
+}
+
+   /* body{
+        
+       background: url('/static/img/mac.jpg');
+       background-repeat: no-repeat;
+       background-size: 40%;
+       background-position: center;
+       background-size: fixed;
+
+    }
+*/
+        .title-h3{
+        font-weight: bold;
+        font-variant: petite-caps;
+    }
+
+
+     .sidebar{
+    -webkit-box-shadow: 0 2px 2px 0 rgba(202, 255, 8, 0.904), 0 3px 1px -2px rgba(146, 230, 13, 0.815)0.12)12)12), 0 1px 5px 0 rgba(0,0,0,0.2);
+     box-shadow: 0 2px 2px 0 rgba(218, 255, 6, 0.76)), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2); 
+     transition: all 400ms ease-in;
+    }
+    
+    .sidebar:hover{
+        -webkit-box-shadow: 0 8px 17px 2px rgba(173, 247, 0, 0.979), 0 3px 14px 2px rgba(182, 247, 4, 0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 17px 2px rgb(80, 243, 5), 0 3px 14px 2px rgba(99, 255, 8, 0.918), 0 5px 5px -3px rgb(228, 224, 8);
+    }
+
+
+    .shadow{
+        box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+     }
+
+     a.simple-text{
+        font-family: 'Russo One', sans-serif;
+     }
+
+      a.simple-text > span{
+        font-size: 13px !important;
+      }
+
+      .logo a{
+        font-family: 'sans-serif', bold;
+      }
+
+    .sub-title{
+        vertical-align: -webkit-baseline-middle;
+        font-size: 12px;
+        font-family: 'sans-serif', bold;
+    }
+
+
+    tr td{
+        font-variant: petite-caps;
+    }
+
+    .loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    width: 850px
+}
+
+.loader.hidden {
+    animation: fadeOut 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.thumb {
+    height: 100px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+
+
+
+    .rounded-circle-image{
+    border-radius: 50% !important;
+    width:250px;
+    height:250px;
+  }
+
+  .form-wrapper{
+  background:#fff;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+}
+
+
+.list-group {
+  margin-top: 10px;
+}
+
+span{
+  color: #6f6f6f;
+  font-weight: lighter;
+  font-size: 16px;
+}
+
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    font-size:17px;
+}
+
+  #override-start{
+    background:none !important;
+    top: 35% !important;
+    right:13px;
+    color:#000;
+    font-size: 24px;
+
+    }
+
+    .alert-warning{
+        background:#fd7b7b;
+    }
+
+    .alert-success {
+        background-color: #82b72a;
+    }
+
+    .alert-success,.alert-warning{
+        font-size:16px;
+    }
+
+    .employee-name-title{
+    color: #3873b1;
+    font-weight: 600;
+    font-variant: petite-caps;
+    font-size: 3.1rem !important;
+  }
+
+  span,.list-group-item > div{
+  font-variant: petite-caps;
+}
+
+
+.panel-default>.panel-heading {
+    color: #fff !important;
+    background-color: #2d88a9 !important;
+}
+
+.panel-title a:hover{
+  color:#e6e4e4;
+}
+
+.panel-title a:active{
+  color:#e6e4e4;
+}
+
+.panel-title a:focus{
+  color:#e6e4e4;
+}
+
+
+
+{% block stylesheet %}
+     
+     
+     {% endblock %}
+     </style>
+
+
+  
+
+ {% block content %}
+ <a href="{% url 'dashboard:labelslist' %}" id="back" >Back</a>
+        <section class="content">
+            <section class="container-fluid">
+           
+                <section class="form-wrapper">
+                    <section class="row">
+                        <section class="col col-lg-8 col-md-12  col-sm-12">
+
+                            {% if  messages %}
+                                    {% for message in messages %}
+                                     <div {% if message.tags %} class="{{ message.tags}}"{% endif %}>
+                                         {{ message }}
+                                         <button type="button" class="close" id = "override-start"data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+                                    {% endfor %}
+                            {% endif %}
+
+                        </section>
+                    </section>
+
+          
+
+                    <section class="row">
+                       
+                        <section class="col-lg-8 col-md-12 col-sm-12">
+                            
+                                    <div class="list-group" id="list-tab" role="tablist">
+                                        
+                                            <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="" role="tab" aria-controls=""><span>Verifier_Name</span> <div>{{ label.user }}</div>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="" role="tab" aria-controls=""><span>Supplier_Label</span> <div>{{label.supplierlabel}}|{{label.s_trace}}|{{label.s_quantity}}|{{label.s_id}}|{{label.s_name}}  </div>
+                                            </a>
+                                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="" role="tab" aria-controls=""><span>Wistron_Label</span><div>{{label.wistronlabel}}|{{label.w_trace}}|{{label.w_quantity}}|{{label.w_id}}|{{label.w_name}} </div>
+                                            </a>
+
+                                            </a>
+                                          
+
+                                             </a>
+
+                                       
+                                      </div>
+
+                        </section>
+                    </section>
+
+
+                             
+                                  <span style="font-size: 13px;padding-left: 1rem;" class="pull-left">Created {{ label.created }}</span>
+                              
+
+
+                </section>
+
+            </section> <!-- /container --> 
+        </section>
+ {% endblock %}
+
+<script type="text/javascript">
+{% block extrajs%}
+
+{% endblock %}
+</script>

@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  </head>
+  <style type="text/css">
+        .alert-warning{
+        background:#fd7b7b;
+    }
+
+    .alert-success {
+        background-color: #82b72a;
+    }
+ 
+
+  .body{
+   position: relative;
+
+  }
+  #button{
+    margin-left: 210px;
+  }
+  #id{
+    padding-block: 10px;
+  
+  }
+  .a{
+   
+  }
+  .child1{
+       border: 2px solid;
+      width: 500px;
+      height: 510px;
+      display: inline-block;
+    position: fixed;
+   
+   border-color: rgb(227, 25, 93);
+   
+    
+  }
+  #input1{
+      width: 350px;
+      height: 50px;
+      margin-top: 6%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  
+  #input2{
+     
+      width: 350px;
+      height: 50px;
+      margin-top: 9%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  #input3{
+      
+      width: 350px;
+      height: 50px;
+      margin-top: 10%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  } 
+  #input4{
+     
+      width: 350px;
+      height: 50px;
+      margin-top: 11%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  
+  #input5{
+      
+      width: 350px;
+      height: 50px;
+      margin-top: 6%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  .child2{
+      border:2px solid black;
+      width: 500px;
+      height: 510px;
+      display: inline-block;
+      position: fixed;
+      overflow-x: hidden;  
+      border-style: ridge;
+      border-color: rgb(227, 25, 93);
+  }
+  #input6{
+     
+      width: 350px;
+      height: 50px;
+      margin-top: 9%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  #input7{
+      
+      width: 350px;
+      height: 50px;
+      margin-top: 10%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  } 
+  #input8{
+     
+      width: 350px;
+      height: 50px;
+      margin-top: 11%;
+      margin-left: 15%;
+      border-color: rgb(255, 0, 85);
+  }
+  body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      overflow: hidden;
+      background-color: #ac0379;
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #cb2771;
+      color: rgb(86, 2, 41);
+    }
+    
+    .topnav a.active {
+      background-color: rgb(116, 71, 102);
+      color: white;
+    }
+    #mn{
+          color: white;
+      }   
+      table, th, td {  
+  border: 1px solid black;  
+  border-collapse: collapse;  
+ text-align: center;
+ 
+}  
+th{
+  background-color: #82b72a;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+}
+  
+
+  </style>
+  
+  </style>
+  <body onload="display_ct();" class="body">
+    
+    
+    <div class="topnav">
+		{%if request.user.is_superuser%}
+      <a href="{% url 'dashboard:stafflabeltable' %}" class="pull-left">All_Labels</a>
+	  {%endif%}
+    <a href="{% url 'dashboard:createlabel' %}" class="pull-left"   >Back</a>
+     <a href="#" class="fa fa-user" style="margin-left: 1090px; font-weight: bolder ;" >{{request.user}}</a>
+     <a href="{% url 'accounts:logout'  %}" class="pull-right" style="background-color: rgb(255, 0, 85) ;">Log_out</a>
+     
+    </div>
+        <!--CONTENTS-->
+ {% block content %}
+        <section class="content">
+            
+
+                	<!-- TABLE -->
+                	<div class="table-responsive table-shadow">
+                		<div class="text-center table-description">
+                			<h4 class="title-h3" style="color: #60a0b3 !important;
+    						text-shadow: 1px 0px rgba(0,0,0,0.11)"></h4>
+                		</div>
+                   <input type="text" id="searchInput" placeholder="Search...">
+
+                		{% if label_list %}
+                		<table id="myTable" class="table">
+							<thead>
+							  <tr >
+								<center> <th scope="col">S.NO</th> </center>
+							<center>	<th scope="col">User</th></center>
+              <center><th scope="col">Supplier_Label</th></center>
+							<center>	<th scope="col">Wistron_Label</th></center>
+								
+							  </tr>
+							</thead>
+							<tbody >
+								{% for label in label_list %}
+							  <tr>
+                              <center> <td>{{forloop.counter}}</td></center>
+							<center>	<td>{{ label.user }}</td></center>
+							<center>	<td>{{label.supplierlabel}}|{{label.s_trace}}|{{label.s_quantity}}|{{label.s_id}}|{{label.s_name}}   </td></center>
+						<center>		<td>{{label.wistronlabel}}|{{label.w_trace}}|{{label.w_quantity}}|{{label.w_id}}|{{label.w_name}} </td></center>
+
+
+				</tr>
+
+							    {% endfor %}
+
+							  </tbody>
+
+						</table>
+						{% else %}
+
+						<span>No Requests can be found...</span>
+						{% endif %}
+			
+					</div>
+                	<!-- /TABLE -->
+
+            </section> <!-- /container --> 
+
+
+        </section>
+ {% endblock %}
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+    $("#searchInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $(".table").each(function () {
+            $(this).find("tr").each(function () {
+                if ($(this).text().toLowerCase().indexOf(value) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+});
+</script>
