@@ -12,7 +12,7 @@ certifi==2023.11.17
 charset-normalizer==3.3.2
 click==8.1.7
 contourpy==1.2.0
-cx_Freeze==7.1.0.dev4
+cx_Freeze==7.1.0
 cycler==0.12.1
 diff-match-patch==20230430
 distlib==0.3.7
