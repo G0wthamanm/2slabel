@@ -2,7 +2,7 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 from sqlalchemy import null
 from .manager import LabelManager
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
 from django.utils import timezone
 
