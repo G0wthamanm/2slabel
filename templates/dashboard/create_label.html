@@ -234,7 +234,7 @@ html,body{
   <input type = text  placeholder="Supplier_Quantity" name="s_quantity" onkeydown="handleInput(this, event)"  id="input3"  size="70" required>
  
   <input type = text  placeholder="S_Vendor_ID" name="s_id" onkeydown="handleInput(this, event)" id="input4"  size="70" required>
-  <input type = text  placeholder="S_Vendor_name" name="s_name" onkeydown="handleInput(this, event)" id="input5"  size="70" required>
+  <input type = text  placeholder="S_Vendor_name" name="s_name" oninput="convertup()"  onkeydown="handleInput(this, event)" id="input5"  size="70" required>
  </div>
  
 <br><br>
@@ -263,7 +263,7 @@ html,body{
 
 
 
-<input type = text placeholder="W_Vendor_name" name="w_name" onkeydown="handleInput(this, event)" id="input10"  size="70"   >
+<input type = text placeholder="W_Vendor_name" name="w_name" oninput="convertup2()"  onkeydown="handleInput(this, event)" id="input10"  size="70"   >
 
 <br>
 <br>
@@ -280,8 +280,6 @@ html,body{
 <style>
 
 
-
-/* Please ❤ this if you like it! */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
@@ -970,7 +968,6 @@ function convertup2(){
   inputField.value = inputField.value.toUpperCase();
 }
  
-
 
 
   /*Form Auto Submit Logic*/
